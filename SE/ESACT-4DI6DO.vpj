@@ -1,0 +1,344 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+    Version="10.0"
+    VendorName="SlickEdit"
+    TemplateName="Other C/C++"
+    WorkingDir=".">
+    <Config
+        Name="Debug"
+        Type="cpp"
+        DebugCallbackName="gdb"
+        OutputFile="%bdESACT-4DI6DO"
+        CompilerConfigName="Latest Version">
+        <Menu>
+            <Target
+                Name="Compile"
+                MenuCaption="&amp;Compile"
+                CaptureOutputWith="ProcessBuffer"
+                OutputExts="*.o"
+                SaveOption="SaveCurrent"
+                RunFromDir="%rw">
+                <Exec CmdLine='cc -c -g %i %defd -o "%bd%n.o" "%f"'/>
+            </Target>
+            <Target
+                Name="Link"
+                MenuCaption="&amp;Link">
+                <Exec CmdLine='cc -g -o "%o" %f %libs'/>
+            </Target>
+            <Target
+                Name="Build"
+                MenuCaption="&amp;Build"
+                CaptureOutputWith="ProcessBuffer"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" build "%w" "%r"'/>
+            </Target>
+            <Target
+                Name="Rebuild"
+                MenuCaption="&amp;Rebuild"
+                CaptureOutputWith="ProcessBuffer"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" rebuild "%w" "%r"'/>
+            </Target>
+            <Target
+                Name="Debug"
+                MenuCaption="&amp;Debug"
+                SaveOption="SaveNone"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                RunFromDir="%rw">
+                <Exec CmdLine='vsdebugio -prog "%o"'/>
+            </Target>
+            <Target
+                Name="Execute"
+                MenuCaption="E&amp;xecute"
+                SaveOption="SaveNone"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%o"'/>
+            </Target>
+        </Menu>
+    </Config>
+    <Config
+        Name="Release"
+        Type="cpp"
+        DebugCallbackName="gdb"
+        OutputFile="%bdESACT-4DI6DO"
+        CompilerConfigName="Latest Version">
+        <Menu>
+            <Target
+                Name="Compile"
+                MenuCaption="&amp;Compile"
+                CaptureOutputWith="ProcessBuffer"
+                SaveOption="SaveCurrent"
+                OutputExts="*.o"
+                RunFromDir="%rw">
+                <Exec CmdLine='cc -c -O %i %defd -o "%bd%n.o" "%f"'/>
+            </Target>
+            <Target
+                Name="Link"
+                MenuCaption="&amp;Link">
+                <Exec CmdLine='cc -O -o "%o" %f %libs'/>
+            </Target>
+            <Target
+                Name="Build"
+                MenuCaption="&amp;Build"
+                CaptureOutputWith="ProcessBuffer"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" build "%w" "%r"'/>
+            </Target>
+            <Target
+                Name="Rebuild"
+                MenuCaption="&amp;Rebuild"
+                CaptureOutputWith="ProcessBuffer"
+                SaveOption="SaveWorkspaceFiles"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%(VSLICKBIN1)vsbuild" rebuild "%w" "%r"'/>
+            </Target>
+            <Target
+                Name="Debug"
+                MenuCaption="&amp;Debug"
+                SaveOption="SaveNone"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                RunFromDir="%rw">
+                <Exec CmdLine='vsdebugio -prog "%o"'/>
+            </Target>
+            <Target
+                Name="Execute"
+                MenuCaption="E&amp;xecute"
+                SaveOption="SaveNone"
+                BuildFirst="1"
+                CaptureOutputWith="ProcessBuffer"
+                RunFromDir="%rw">
+                <Exec CmdLine='"%o"'/>
+            </Target>
+        </Menu>
+    </Config>
+    <Rules Name="Compile">
+        <Rule
+            InputExts="*.s"
+            OutputExts="*.o"
+            LinkObject="1">
+            <Exec CmdLine='as -o "%bd%n.o" "%f"'/>
+        </Rule>
+    </Rules>
+    <Files>
+        <Folder
+            Name="Header Files"
+            Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.h++;*.inc;*.sh;*.cpy;*.if"
+            GUID="{4FFB06B1-D13C-427F-5FD1-53EFDE672BA2}">
+            <Folder
+                Name="app"
+                Filters=""
+                GUID="{526ECE14-5245-4CCF-5B37-0F676DDAD4BE}">
+                <F N="../app/dev.h"/>
+                <F N="../app/dev_show.h"/>
+                <F N="../app/plc_smart.h"/>
+                <F N="../app/proto_smart.h"/>
+                <F N="../app/report/auto_report.h"/>
+                <F N="../app/report/auto_report_app.h"/>
+                <F N="../app/settings.h"/>
+                <F N="../app/update.h"/>
+            </Folder>
+            <Folder
+                Name="src"
+                Filters=""
+                GUID="{859685AB-8C17-4491-667F-11AFB78F618D}">
+                <F N="../src/sensor.h"/>
+            </Folder>
+            <Folder
+                Name="board"
+                Filters=""
+                GUID="{2243A88C-9B6B-4244-FA84-3599B76CCFA5}">
+                <F N="../bsp/ES8P508/board.h"/>
+                <F N="../bsp/ES8P508/config.h"/>
+                <F N="../bsp/ES8P508/drivers/es8p508_adc.h"/>
+                <F N="../bsp/ES8P508/drivers/es8p508_buz.h"/>
+                <F N="../bsp/ES8P508/drivers/es8p508_flash.h"/>
+                <F N="../bsp/ES8P508/drivers/es8p508_key.h"/>
+                <F N="../bsp/ES8P508/drivers/es8p508_led.h"/>
+                <F N="../bsp/ES8P508/drivers/es8p508_relay.h"/>
+                <F N="../bsp/ES8P508/drivers/es8p508_triac.h"/>
+                <F N="../bsp/ES8P508/drivers/es8p508_usart.h"/>
+                <F N="../bsp/ES8P508/drivers/es8p508_zcp.h"/>
+                <F N="../bsp/ES8P508/encode.h"/>
+                <F N="../bsp/ES8P508/irqhandler.h"/>
+                <F N="../bsp/ES8P508/Libraries/CMSIS/core_cm0.h"/>
+                <F N="../bsp/ES8P508/Libraries/CMSIS/core_cmFunc.h"/>
+                <F N="../bsp/ES8P508/Libraries/CMSIS/core_cmInstr.h"/>
+                <F N="../bsp/ES8P508/Libraries/CMSIS/ES8P508x.h"/>
+                <F N="../bsp/ES8P508/Libraries/CMSIS/system_ES8P508x.h"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Include/type.h"/>
+            </Folder>
+            <Folder
+                Name="components"
+                Filters=""
+                GUID="{07FAB1D0-CFB6-4FBF-18D5-5A6C476204AF}">
+                <F N="../components/rtt/SEGGER_RTT.h"/>
+                <F N="../components/shell/cmds.h"/>
+                <F N="../components/shell/shell.h"/>
+            </Folder>
+            <Folder
+                Name="os"
+                Filters=""
+                GUID="{EEA4FCDA-96E4-43FE-F874-D8D3D677EA88}">
+                <F N="../os/inc/croutine.h"/>
+                <F N="../os/inc/jiffies.h"/>
+                <F N="../os/inc/os.h"/>
+                <F N="../os/inc/port.h"/>
+                <F N="../os/inc/softtimer.h"/>
+            </Folder>
+            <Folder
+                Name="examples"
+                Filters=""
+                GUID="{E8EDC711-ED71-4FB8-11CD-CE0F8900338C}">
+                <F N="../examples/test.h"/>
+                <F N="../examples/test_uart.h"/>
+            </Folder>
+            <Folder
+                Name="Library"
+                Filters=""
+                GUID="{32F097A4-1251-4FB4-EB85-61EAF186A1A4}">
+                <F N="../bsp/ES8P508/Libraries/Library/Include/lib_adc.h"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Include/lib_aes.h"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Include/lib_config.h"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Include/lib_crc.h"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Include/lib_flashiap.h"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Include/lib_gpio.h"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Include/lib_iap.h"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Include/lib_iic.h"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Include/lib_printf.h"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Include/lib_rtc.h"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Include/lib_scs.h"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Include/lib_scu.h"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Include/lib_spi.h"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Include/lib_timer.h"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Include/lib_uart.h"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Include/lib_wdt.h"/>
+            </Folder>
+            <Folder
+                Name="StartUp"
+                Filters=""
+                GUID="{75EA7922-861A-4A64-05FD-B983A185A085}"/>
+            <Folder
+                Name="CMSIS"
+                Filters=""
+                GUID="{199B1B11-6280-4865-4A37-D1D5C2EB0B93}"/>
+        </Folder>
+        <Folder
+            Name="Source Files"
+            Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.c++;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.scala;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl;*.d;*.m;*.mm;*.go;*.groovy;*.gsh"
+            GUID="{8A71235E-480E-4C47-0F57-4F86844D76AC}">
+            <Folder
+                Name="app"
+                Filters=""
+                GUID="{93CCA3DA-87E8-49C1-0A33-FEA3CE8926B3}">
+                <F N="../app/dev.c"/>
+                <F N="../app/dev_show.c"/>
+                <F N="../app/main.c"/>
+                <F N="../app/plc_smart.c"/>
+                <F N="../app/proto_smart.c"/>
+                <F N="../app/report/auto_report.c"/>
+                <F N="../app/report/auto_report_app.c"/>
+                <F N="../app/report/example.c"/>
+                <F N="../app/settings.c"/>
+                <F N="../app/update.c"/>
+            </Folder>
+            <Folder
+                Name="src"
+                Filters=""
+                GUID="{292A77B9-CF81-4496-9253-C0FA7A7DE7AF}">
+                <F N="../src/alloter.c"/>
+                <F N="../src/bitmap.c"/>
+                <F N="../src/bitops.c"/>
+                <F N="../src/device.c"/>
+                <F N="../src/drivers/key.c"/>
+                <F N="../src/kfifo.c"/>
+                <F N="../src/object.c"/>
+                <F N="../src/printk.c"/>
+                <F N="../src/drivers/serial.c"/>
+                <F N="../src/utils.c"/>
+            </Folder>
+            <Folder
+                Name="board"
+                Filters=""
+                GUID="{78092766-3A4E-4E34-9EBB-C3178B60D7A2}">
+                <F N="../bsp/ES8P508/board.c"/>
+                <F N="../bsp/ES8P508/drivers/es8p508_adc.c"/>
+                <F N="../bsp/ES8P508/drivers/es8p508_buz.c"/>
+                <F N="../bsp/ES8P508/drivers/es8p508_flash.c"/>
+                <F N="../bsp/ES8P508/drivers/es8p508_key.c"/>
+                <F N="../bsp/ES8P508/drivers/es8p508_led.c"/>
+                <F N="../bsp/ES8P508/drivers/es8p508_relay.c"/>
+                <F N="../bsp/ES8P508/drivers/es8p508_usart.c"/>
+                <F N="../bsp/ES8P508/drivers/es8p508_zcp.c"/>
+                <F N="../bsp/ES8P508/encode.c"/>
+                <F N="../bsp/ES8P508/irqhandler.c"/>
+            </Folder>
+            <Folder
+                Name="components"
+                Filters=""
+                GUID="{91A136AA-B4B2-453D-F544-AF1ADEE5269E}">
+                <F N="../components/rtt/SEGGER_RTT.c"/>
+                <F N="../components/shell/cmds.c"/>
+                <F N="../components/shell/shell.c"/>
+            </Folder>
+            <Folder
+                Name="os"
+                Filters=""
+                GUID="{708ACD44-5157-4EFC-CACE-0E78CD03619B}">
+                <F N="../os/src/croutine.c"/>
+                <F N="../os/src/jiffies.c"/>
+                <F N="../os/src/port.c"/>
+                <F N="../os/src/softtimer.c"/>
+            </Folder>
+            <Folder
+                Name="examples"
+                Filters=""
+                GUID="{CC384E3B-D73F-468C-B814-51162923759E}">
+                <F N="../examples/test.c"/>
+                <F N="../examples/test_uart.c"/>
+            </Folder>
+            <Folder
+                Name="Library"
+                Filters=""
+                GUID="{F3BC2E3B-72D0-48A9-3A53-1AE2C8D56AB8}">
+                <F N="../bsp/ES8P508/Libraries/Library/Source/lib_adc.c"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Source/lib_aes.c"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Source/lib_crc.c"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Source/lib_flashiap.c"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Source/lib_gpio.c"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Source/lib_iap.c"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Source/lib_iic.c"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Source/lib_printf.c"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Source/lib_rtc.c"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Source/lib_scs.c"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Source/lib_scu.c"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Source/lib_spi.c"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Source/lib_timer.c"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Source/lib_uart.c"/>
+                <F N="../bsp/ES8P508/Libraries/Library/Source/lib_wdt.c"/>
+            </Folder>
+            <Folder
+                Name="SartUp"
+                Filters=""
+                GUID="{B99C45D3-773F-4CAF-89C1-23DCA3CCA390}">
+                <F N="../bsp/ES8P508/startup/startup_ES8P508x.s"/>
+            </Folder>
+            <Folder
+                Name="CMSIS"
+                Filters=""
+                GUID="{A8807621-DABC-4B4A-E71C-069B3F0993B0}">
+                <F N="../bsp/ES8P508/Libraries/CMSIS/system_ES8P508x.c"/>
+            </Folder>
+            <Folder
+                Name="othersrc"
+                Filters=""
+                GUID="{A5DD044A-A8B9-493A-4CE7-04AF4717D385}"></Folder>
+        </Folder>
+    </Files>
+</Project>
